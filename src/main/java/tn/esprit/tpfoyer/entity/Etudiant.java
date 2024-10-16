@@ -22,6 +22,10 @@ public class Etudiant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long idEtudiant;
 
+    @ManyToOne
+    @JoinColumn(name = "universite_id")
+    private Universite universite;
+
     String nomEtudiant;
     String prenomEtudiant;
     long cinEtudiant;

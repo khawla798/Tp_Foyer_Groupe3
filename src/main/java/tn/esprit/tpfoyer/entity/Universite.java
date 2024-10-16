@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -20,10 +22,13 @@ public class Universite {
     String nomUniversite;
 
     String adresse;
+    private String location;
 
     @OneToOne(cascade = CascadeType.ALL)
     Foyer foyer;
-
+    private int nombreEtudiants;
+    @OneToMany(mappedBy = "universite")
+    private List<Etudiant> etudiants;
 }
 
 
